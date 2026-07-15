@@ -1,0 +1,11 @@
+# macOS and editor files
+.DS_Store
+.idea/
+.vscode/
+
+# User-owned source material and generated deliverables
+uploads/
+outputs/
+generated/
+*.psd
+*.kra
