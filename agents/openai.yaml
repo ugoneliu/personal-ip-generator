@@ -1,4 +1,4 @@
 interface:
-  display_name: "个人IP生成skill"
-  short_description: "通过Plan模式逐步问答，从预设画风生成统一的个人IP与表情包"
-  default_prompt: "使用 $personal-ip-generator，通过Plan模式一次问我一个问题，选择预设风格后生成个人 IP、角色设定和 9 张表情包。"
+  display_name: "个人IP与照片插画"
+  short_description: "选择画风生成个人IP，或统一照片插画并精确局部修改"
+  default_prompt: "使用 $personal-ip-generator，按我请求的头像、表情包或照片插画交付形式工作，保留人物与服装细节，锁定我选择的画风。只询问缺失信息，局部修改时沿用已确认设定。"
