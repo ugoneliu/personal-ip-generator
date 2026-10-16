@@ -1,51 +1,43 @@
 # QA and Deliverables
 
-## Default Package
+## Inspect Before Claiming Success
 
-- One approved prompt lock.
-- One 3x2 preview overview containing six candidates with host-rendered numeric badges (`1` through `6`).
-- One 1:1 formal-avatar source asset and one 3x3 expression-sticker source board.
-- One 4x3 final delivery board that places the avatar and expression board on the same page with host-rendered Chinese captions.
-- Optional transparent-background cutout export containing nine individual expression stickers, only when selected.
-- One written handoff: IP type, character name, one-line positioning, 3-5 personality keywords, visual memory point, palette, and reusable prompt lock.
+Open/view the actual generated result and each exported file. Compare against the active source and style references, not just the generation prompt. Record `pass`, `fail` or `not verified` for the relevant checks; do not call a file checked when it was not inspected. Keep a compact internal record per asset: source ID → output/version → content/style/edit/export checks → unresolved issue. Surface only useful findings to the user.
 
-## IP Mode QA
+If a required source, visual inspection tool or output file is unavailable, state what remains unverified. A tool's successful return and a model's verbal “looks correct” are not evidence of visual fidelity.
 
-- 人物 IP keeps at least three visible, authorized identity anchors; no sensitive or unsupported personal claims appear in the written handoff.
-- 代表形象 IP matches the approved representative brief, audience, role, and visual memory point while remaining original and not implying an unauthorized person's likeness.
+## Shared Visual Checks
 
-## Prompt and Style QA
+1. **Mapping and count:** correct source photo/scene, exact subject count, distinct people, positions and relative sizes. No duplicated person, extra limb, invented pet or borrowed scene. A source-visible toy, print or reflection is not a new living subject; preserve/remove it only as specified.
+2. **Identity and pose:** face outline, hairstyle, eyewear and distinguishing visible features remain recognisable. No cloning one child's face/hair onto another. Hands, contact, gaze and action match the source or approved changes. Use only supplied personal labels; do not infer sensitive attributes.
+3. **Clothing and accessories:** compare every roster entry at a useful zoom. Check skirt versus trousers, scarf versus straps, cut/hem/layers, colors, ponytail, headpiece, footwear, accessory number and attachment. Confirm the semantic identity, size and location of requested chest motifs, not just a dark shape.
+4. **Scene and frame:** only source facts and specifically requested additions; no automatic cats, decorative objects, text or landmark guesses. No unintended crop, stretched limb or shortened foot during completion/outpainting.
+5. **Style:** compare line, face/shape language, proportions, material marks, palette, paper/light and overall finish with the chosen style lock and keyframe. Correct content alone does not pass a style mismatch. For `tongqu-huiben-feng`, run the close-up and whole-image checks in `storybook-style.md`, especially real pigment behavior versus a digital noise overlay.
+6. **Cross-image continuity:** same drawing grammar and stable character anchors across the series; each photo still has its own cast, pose, clothes and scene. A new outfit visible in the next photo is not drift.
+7. **Local edit containment:** compare target and protected areas with the accepted base. Verify the correction and check faces, hair/headpiece, all other clothing, pose, background, palette, texture and framing. Do not claim pixel-identical preservation unless actually measured; generative edits can alter protected areas.
 
-- The prompt lock contains IP mode, source/brief, style fingerprint, enhanced traits, palette direction, composition, and negative constraints.
-- Line, shape, proportion, rendering, palette, light, texture, and composition follow the selected style reference.
-- The output does not carry over reference character identity, branding, watermark, signature, text, or scene.
+## Photo Illustration Package
 
-## Candidate Preview QA
+- One complete, independently openable image per requested source scene, with stable source-ID → filename mapping, e.g. `photo-03_illustration_v02.png`.
+- Each file contains only that scene, without adjacent scenes, split-screen comparison, labels, contact-sheet gutters or duplicated panels unless explicitly requested.
+- Check file count, dimensions/aspect, orientation, actual image format, complete subject boundaries and readable key details. Open the exports themselves; a good overview does not prove a good individual file.
+- An optional contact sheet is additional navigation, never a replacement for the requested separate images. If only a sheet is produced, safely extract complete panels when feasible or regenerate the missing standalone scene; disclose if the requested delivery remains incomplete.
+- Supply a compact reusable style/character handoff when requested or helpful, without inventing biographies, names or relationships.
 
-- Deliver one 3x2 preview overview with exactly six equally sized cells and host-rendered numeric badges on the same page: `1` top-left, `2` top-center, `3` top-right, `4` bottom-left, `5` bottom-center, `6` bottom-right.
-- Never depend on generated in-image numbering; the underlying overview artwork contains no captions, watermarks, logos, or accidental text.
-- Every cell preserves the prompt lock; only silhouette, outfit emphasis, accessory emphasis, pose, expression, or composition may vary.
-- Cells are meaningfully distinct and none has missing or extra limbs, duplicate accessories, merged fingers, inconsistent scale, or unrelated characters.
+## Original IP Package (IP Exploration Only)
 
-## Final Delivery Board QA
+- Approved prompt lock and one 3x2 six-candidate overview, equal cells with host-rendered badges `1`–`6` in reading order. Candidates differ only along approved axes, without changing fixed clothes/accessories or introducing unrelated people.
+- Selected 1:1 avatar source and a 3x3 expression source board, followed by one 4x3 final board with avatar left and expressions right. The candidate controls designed continuity; source photos and scoped corrections remain factual authorities.
+- Host-render captions: `正式头像`, `开心`, `大笑`, `生气`, `委屈`, `惊讶`, `困惑`, `得意`, `疲惫`, `喜爱`. Check actual labels and their cell mapping. Do not depend on model-generated Chinese or numbers.
+- All panels keep the selected character's face, hair, silhouette, outfit cut/layers, footwear, palette, material, motifs and accessory placement. Expressions read at roughly 256 px and differ by face/gesture, not costume redesign.
+- Keep the original board-only delivery default. Export nine separate square expression files only when cutouts or another individual-file package was requested. Each silhouette must be complete, with no neighbor-cell fragments or clipped accessories.
+- Claim transparency only after checking actual alpha data and visually checking edges; an RGBA container with all-opaque alpha or a painted checkerboard is not transparency. When cutouts were requested but unavailable, state the unmet requirement.
+- Written handoff: IP type, any user-approved name/positioning, visible memory points, palette and reusable prompt lock. Do not invent personal claims to fill a template.
 
-- The user-selected overview cell is the sole primary reference for the final avatar and expression board.
-- Deliver one 4x3 final delivery board with the formal avatar panel on the left and the 3x3 expression board on the right.
-- Host-render these Chinese captions on the final board: `正式头像`, `开心`, `大笑`, `生气`, `委屈`, `惊讶`, `困惑`, `得意`, `疲惫`, `喜爱`. Do not rely on model-generated Chinese text.
-- Face, hair, silhouette, outfit cut, footwear, palette, material, outline, and accessory placement match the selected candidate across every panel.
-- The 1:1 avatar is centered, readable at small size, and free of generated text, watermarks, logos, and unrelated characters.
+## Focused Failure Handling
 
-## Expression-Board and Cutout QA
+Keep the accepted original and version the repair. Restore only the failed asset/region with the same active source/style set. For an initial failed generation with no accepted same-scene base, regenerate from that scene's original source plus the active style references; a different-scene keyframe is never the edit/content base. Exclude rejected outputs from future authority. If a single expression/candidate cell can be repaired and recomposed, preserve the other approved artwork; recreate a complete overview only if independent replacement is infeasible.
 
-- The 3x3 board contains Happy, Laughing, Angry, Aggrieved, Surprised, Confused, Proud, Tired, and Love.
-- Expressions are recognizable at approximately 256 px and change through face and gesture rather than costume redesign.
-- Cells have equal spacing and preserve the selected character's identity, style, and palette.
-- When cutout export is not selected, deliver the one 4x3 final delivery board with Chinese captions and no individual sticker files.
-- When cutout export is selected, deliver nine square expression stickers with verified alpha channels; otherwise state that clean white backgrounds were used.
+Allow up to two focused repair attempts per failed asset, within the user's/tool's cost and retry limits. Reinspect each result. If still failing, stop automatic retries and report the specific unresolved defect and last usable version; never present the failed result as approved. A new explicit user direction may authorize a further attempt. Incorrect numbering or captions require host recomposition only.
 
-## Failure Handling
-
-- If a preview cell drifts, regenerate the complete 3x2 overview with the full prompt lock and the same ordered cell focuses.
-- If the final avatar or expression board drifts, attach the selected candidate again and restate the changed locked details.
-- If one board cell fails, regenerate only the failed expression rather than replacing approved assets.
-- If a numeric badge or Chinese caption is wrong, recompose the overview or final delivery board with host rendering; do not regenerate the approved character artwork.
+When the image tool has staged output rules, obey them and perform inspection at the next permitted stage before promoting a result to accepted/keyframe status. Do not silently certify an unchecked output.

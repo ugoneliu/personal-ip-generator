@@ -4,12 +4,16 @@
 
 Present only presets marked `active`. Never invent missing presets or use a generic fallback without telling the user. Store preset reference images under `assets/style-presets/<preset-id>/` only when the user explicitly authorizes adding them to the skill.
 
+Presets are **image-backed** or explicitly labeled **text recipes**. The original five entries remain image-backed and retain their own visual grammar. The additional `tongqu-huiben-feng` recipe is opt-in; never select it because the input happens to show children, or merge its palette/shape rules into 彩绘风.
+
+All “ignore / no copied character / no logo / no text / no extra scenery” constraints below prohibit accidental imports from style references or unrequested additions. They do not erase explicitly requested source-photo garment motifs, headpieces, scene signage or content facts. Photo composition and roster take precedence over a preset's default avatar framing/background. Preserve all source-visible or user-confirmed accessories, not just one signature item.
+
 Each preset must include:
 
 - Stable lowercase hyphenated preset ID.
 - Chinese display name.
 - Status: active or draft.
-- One or more relative reference asset paths.
+- Evidence type: image-backed with real relative reference paths, or text recipe with a disclosed lack of bundled reference/preview. Never fabricate paths.
 - Best uses.
 - Complete style fingerprint covering line, shape, proportion, rendering, palette, lighting, texture, composition, background, and sticker-outline behavior.
 - Identity-preservation rules.
@@ -21,6 +25,7 @@ Each preset must include:
 ### caihui-feng — 彩绘风
 
 - Status: active
+- Evidence type: image-backed
 - Reference assets:
   - `assets/style-presets/caihui-feng/reference-01.png`
   - `assets/style-presets/caihui-feng/reference-02.png`
@@ -38,13 +43,14 @@ Each preset must include:
 - Composition: centered character, generous whitespace, simple uncluttered framing, optional small decorative marks or soft ground shape; no complex scene required.
 - Background: warm cream, paper white, or very pale neutral wash; keep the background quiet enough for the silhouette to read.
 - Sticker outline: preserve the organic dark-brown contour; use a cream or white sticker border only when needed for separation, never a glossy heavy die-cut effect.
-- Preserve from identity reference: the person's face shape, hairstyle, eyewear, facial hair, signature clothing cues, body proportion, and one memorable accessory when visible and authorized.
+- Preserve from identity reference: the person's face shape, hairstyle, eyewear, facial hair, signature clothing cues, body proportion, and all visible or user-confirmed accessories.
 - Ignore from style reference: the depicted characters' identities, exact hair/face combinations, clothing text such as `FLOKIDA`, cats, props, decorative symbols, and the original poses or compositions.
 - Negative constraints: no photorealism, no hard 3D plastic, no neon palette, no complex background, no copied character, no logos, no watermarks, no accidental text, no extra characters unless requested.
 
 ### xian-tiao-feng — 线条风
 
 - Status: active
+- Evidence type: image-backed
 - Reference assets:
   - `assets/style-presets/xian-tiao-feng/reference-01.png`
   - `assets/style-presets/xian-tiao-feng/reference-02.png`
@@ -61,13 +67,14 @@ Each preset must include:
 - Composition: centered head or bust, ample whitespace, direct readable face, optional simple sticker-like grouping; do not copy reference grids.
 - Background: pure white, warm off-white, or transparent-looking plain background.
 - Sticker outline: black contour is the illustration boundary; avoid glossy die-cut borders.
-- Preserve from identity reference: face shape, hairstyle, glasses, facial hair, signature clothing cue, body proportion, and one memorable accessory when visible and authorized.
+- Preserve from identity reference: face shape, hairstyle, glasses, facial hair, signature clothing cue, body proportion, and all visible or user-confirmed accessories.
 - Ignore from style reference: depicted people, exact facial combinations, the English heading, reference layouts, and every original pose.
 - Negative constraints: no photorealism, no 3D rendering, no detailed scenery, no color-heavy palette, no logos, no watermark, no text, no copied character.
 
 ### 3d-feng — 3D风
 
 - Status: active
+- Evidence type: image-backed
 - Reference assets:
   - `assets/style-presets/3d-feng/reference-01.png`
   - `assets/style-presets/3d-feng/reference-02.png`
@@ -85,13 +92,14 @@ Each preset must include:
 - Composition: centered close-up or upper-body portrait, direct gaze, clean gradient or solid studio backdrop, accessories readable but not crowded.
 - Background: saturated blue, pink, yellow, or another approved smooth studio gradient.
 - Sticker outline: none by default; rely on lighting and background contrast for separation.
-- Preserve from identity reference: recognizable face shape, hairstyle, eyewear, facial hair, clothing cues, body proportion, and one authorized signature accessory.
+- Preserve from identity reference: recognizable face shape, hairstyle, eyewear, facial hair, clothing cues, body proportion, and all visible or user-confirmed accessories.
 - Ignore from style reference: Nike and other logos, badges, written slogans, barcodes, exact hats, exact piercings, depicted people, and original layouts.
 - Negative constraints: no logos, no trademarked patches, no readable text, no watermark, no copied character, no photoreal person, no cluttered background.
 
 ### illustration-feng — 插画风
 
 - Status: active
+- Evidence type: image-backed
 - Reference assets:
   - `assets/style-presets/illustration-feng/reference-01.png`
   - `assets/style-presets/illustration-feng/reference-02.png`
@@ -110,13 +118,14 @@ Each preset must include:
 - Composition: centered portrait or half-body, solid or gently graded background field, deliberate negative space, editorial crop.
 - Background: saturated single-color field, pale cream, or smooth blue gradient.
 - Sticker outline: minimal or absent; use the outer silhouette and color contrast instead of a die-cut border.
-- Preserve from identity reference: face shape, hairstyle, glasses, facial hair, signature clothing cue, body proportion, and one memorable accessory when visible and authorized.
+- Preserve from identity reference: face shape, hairstyle, glasses, facial hair, signature clothing cue, body proportion, and all visible or user-confirmed accessories.
 - Ignore from style reference: watermarks, platform marks, artist credits, the cat, exact people, exact outfits, text, and original compositions.
 - Negative constraints: no 3D plastic, no photorealism, no copied character, no logo, no watermark, no readable text, no overly detailed scenery.
 
 ### figure-feng — 手办风
 
 - Status: active
+- Evidence type: image-backed
 - Reference assets:
   - `assets/style-presets/figure-feng/reference-01.png`
   - `assets/style-presets/figure-feng/reference-02.png`
@@ -135,13 +144,36 @@ Each preset must include:
 - Composition: centered full-body figure, clean display pose, generous whitespace, accurate visible footwear and accessories.
 - Background: white, pale gray, or very light neutral studio sweep.
 - Sticker outline: none; the figurine is separated through soft shadow and studio contrast.
-- Preserve from identity reference: recognizable face shape, hairstyle, eyewear, facial hair, signature clothing cues, body proportion, and one memorable accessory when visible and authorized.
+- Preserve from identity reference: recognizable face shape, hairstyle, eyewear, facial hair, signature clothing cues, body proportion, and all visible or user-confirmed accessories.
 - Ignore from style reference: exact uniforms, badges, school emblems, character designs, flame motifs, specific pets, and original poses or outfits.
 - Negative constraints: no logo, no watermark, no readable text, no copied character, no photoreal person, no busy scenery, no malformed limbs or duplicate accessories.
 
+### tongqu-huiben-feng — 童趣手绘绘本风
+
+- Status: active
+- Evidence type: text recipe, explicitly added for selectable use; no bundled image or accepted-output sample.
+- Reference assets: none bundled. Use the user's actual runtime style image when supplied; see [storybook-style.md](storybook-style.md) for scope and evidence limits.
+- Preview asset: none; present a text card labeled “文字预设 · 无内置预览”. Do not reuse 彩绘风's thumbnail.
+- Tags: 稚拙造型、真实蜡笔油画棒、色铅笔水粉、纸张肌理、鲜活复古配色
+- Best uses: photo-to-picture-book scenes, recognisable family/group illustrations, consistent multi-photo series, requested handmade character art.
+- Line: uneven, pressure-sensitive pencil/crayon marks and broken pigment edges, no uniform digital contour.
+- Shape: naive, slightly awkward and asymmetric silhouettes; distinct individual face/hair shapes, no compulsory round chibi template.
+- Proportion: simplify according to source and selected reference; preserve relative heights/builds/poses, with no universal head/body ratio.
+- Rendering/material: waxy directional crayon/oil-pastel layers, selective colored-pencil hatching and matte gouache masses; paper tooth breaks pigment coverage naturally.
+- Palette: high-saturation accents in soft matte retro harmony; warm paper neutrals balance lively reds/yellows/blues/greens. Keep source garment/motif color identity; avoid all-beige desaturation or neon glow.
+- Lighting: flattened illustrated space, restrained drawn shadows, no realistic skin gradients, studio-plastic highlights or dramatic rendering.
+- Texture: actual-looking pressure, drag, dry coverage and pigment overlap at different mark scales; no uniform noise, film grain, speckle or vintage-filter overlay.
+- Composition: source-led for photo illustration; retain the requested subjects, relationships, crop and scene. No imported composition or decorative additions.
+- Background: simplify the source setting while retaining requested facts; paper/quiet fields only when appropriate to the user's brief.
+- Sticker outline: absent by default; only add a border when requested.
+- Preserve from identity/content reference: every person's distinctive visible anchors, all confirmed garments, motifs and accessories, positions, poses and exact subject count.
+- Ignore from style reference: depicted cast, animals, toys, props, text, title, logos, watermark, architecture and specific scene arrangement unless separately requested as content.
+- Negative constraints: no template faces, no realistic facial modeling, no smooth commercial cartoon/vector finish with a grain filter, no anime/3D drift, no invented people/animals/scene elements.
+- Detailed application and QA: read [storybook-style.md](storybook-style.md) only when this recipe is selected.
+
 ### User Selection Card
 
-Output one card for every active preset in catalog order. Do not show only an example card or skip a preset. Each card must include its preview, Chinese name, tags, and best uses:
+Output one card for every active preset in catalog order. Do not show only an example card or skip a preset. Each image-backed card includes its actual preview, Chinese name, tags and best uses. A text-recipe card includes its Chinese name, tags, best uses and explicit no-preview label instead; never invent an image:
 
 ```markdown
 ### <Chinese display name>
@@ -150,7 +182,7 @@ Output one card for every active preset in catalog order. Do not show only an ex
 适用：<Best uses>
 ```
 
-Do not expose the full technical fingerprint until the user selects the preset or asks for details.
+Do not expose the full technical fingerprint until the user selects the preset or asks for details. Selection of a text recipe does not imply the named original reference was visually inspected.
 
 ### Task-scoped Custom Style
 
@@ -168,9 +200,9 @@ When selected, inspect the user-provided image or image group and use the extrac
 
 For a newly supplied group of style images:
 
-1. Treat the group as one candidate preset unless the user requests separate styles.
+1. Treat a coherent group as one candidate preset; resolve materially incompatible examples rather than averaging them into a misleading fingerprint.
 2. Inspect the images and write one shared fingerprint using every field in the preset template.
-3. Ask the user for the Chinese display name as a single question, then derive a stable lowercase hyphenated ID.
+3. Reuse a supplied Chinese display name, or ask for it as a single question; then derive a stable lowercase hyphenated ID.
 4. Ask for explicit authorization before copying the reference assets to `assets/style-presets/<preset-id>/`.
 5. Flag materially similar active presets and let the user choose merge or create-new.
 6. Write `Status: draft` until the user confirms activation; only active entries appear in selection cards.
@@ -180,8 +212,10 @@ For a newly supplied group of style images:
 ```markdown
 ### <preset-id> — <Chinese display name>
 
-- Status: active
-- Reference assets: `assets/style-presets/<preset-id>/<file>`
+- Status: draft
+- Evidence type: image-backed / text recipe
+- Reference assets: real `assets/style-presets/<preset-id>/<file>` paths, or none bundled
+- Preview asset: actual path, or explicit no-preview label
 - Best uses:
 - Line:
 - Shape:
